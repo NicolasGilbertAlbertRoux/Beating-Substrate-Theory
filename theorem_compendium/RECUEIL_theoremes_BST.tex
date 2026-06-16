@@ -1,0 +1,206 @@
+\documentclass[11pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{tabular}{\begin{adjustbox}{max width=\linewidth}}
+\AfterEndEnvironment{tabular}{\end{adjustbox}}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\chaptername}{Chapitre}
+\renewcommand{\contentsname}{Table des matières}
+
+\newcounter{thm}[chapter]
+\renewcommand{\thethm}{\thechapter.\arabic{thm}}
+\newcommand{\Th}[6]{%
+  \refstepcounter{thm}%
+  \medskip\noindent\textbf{Théorème~\thethm{} (#1).}\enspace #2%
+  \par\smallskip\noindent\small\textit{Statut :} #3 \;\textbar\; \textit{Formalisabilité :} #4 \;\textbar\; \textit{Dépend de :} #5 \;\textbar\; \textit{Stage(s) :} #6\par\normalsize\medskip}
+\newcommand{\Eqr}[1]{\vspace{-0.4em}\par\noindent\small\textit{Équation rejointe :} #1\par\normalsize\medskip}
+
+\title{Recueil de théorèmes\\[0.4em]\large de la Théorie du Substrat Battant\\[0.6em]\normalsize Version complète et optimisée --- avec classification de formalisabilité}
+\author{Nicolas Gilbert Albert Roux}
+\date{\today}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\vspace{1em}
+\begin{center}\itshape
+« Une autre porte d'entrée vers BST est son recueil de théorèmes.\\
+Ils ne réinventent pas la Physique mais permettent de la rejoindre\\
+depuis les structures les plus profondes de la théorie. »
+\end{center}
+\vspace{1em}
+
+\begin{center}\small\itshape Une assistance computationnelle a été utilisée pour l'organisation et l'audit de cohérence de ce recueil. Chaque attribution de stage a été vérifiée contre le dépôt.\end{center}
+
+\tableofcontents
+\mainmatter
+
+\chapter{Avertissement de lecture}
+
+\section{Ce que ce recueil est et n'est pas}
+Ce recueil rassemble, sous forme d'énoncés numérotés, les résultats structurels de la Théorie du Substrat Battant (BST), dans leur version la plus complète et la plus optimisée à ce jour. Conformément à l'épigraphe, ces théorèmes ne réinventent pas la physique : ils permettent de la \emph{rejoindre} depuis les structures les plus profondes du cadre.
+
+Ce recueil n'est pas une preuve que la nature \emph{est} le substrat battant. Les théorèmes physiques \emph{rejoignent} des équations déjà établies et déjà calibrées sur l'expérience ; ils ne les dérivent pas \emph{ex nihilo} et n'en constituent pas une confirmation empirique nouvelle. Les résultats numériques sont des résultats de \emph{possibilité/cohérence} (le langage substrat-phase \emph{peut} héberger ces structures), non des mesures de la nature. Aucune prédiction nouvelle et falsifiée n'est revendiquée.
+
+\section{Les deux portes --- et ce que leur convergence vaut}
+La BST a été atteinte par deux chemins indépendants : une démarche \emph{constructive} (bâtir une simulation honorant la réalité, puis en lire la structure) et une démarche de \emph{re-description} (repartir de la physique établie, déjà calibrée, et la reformuler sous un principe géométrique minimal). Les deux convergent vers la même architecture. Cette convergence atteste la \emph{robustesse} et le caractère \emph{non arbitraire} de la re-description --- mais non une validation empirique indépendante : les deux portes honorent le même ancrage (la physique connue), et une simulation ne reproduit que ce qu'on l'a construite pour reproduire. C'est un argument de cohérence, pas une mesure de la nature.
+
+\section{Légende des statuts}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Statut & Sens \\
+\hline
+Forcé & Imposé par la structure du cadre, sans réglage libre. \\
+Dérivé & Obtenu par dérivation/chaîne démonstrative sous hypothèses explicites (résultat de possibilité). \\
+Conditionnel & Valide si un ingrédient explicitement posé est accepté. \\
+Posé & Intrant explicitement supposé, non dérivé (frontière axiomatique). \\
+Calibré & Magnitude raccordée à l'observation ; légitime si déclarée. \\
+Cohérent & Compatible avec le cadre, mais non dérivé. \\
+Ouvert & Question non résolue par le cadre actuel. \\
+Exploratoire & Architecture conceptuelle proposée, non ancrée comme la physique. \\
+Méthodologique & Contrainte imposée au cadre, non dérivée de lui. \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Légende de formalisabilité}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Indice & Sens \\
+\hline
+$\vdash_{\mathrm{L}}$ & Logico-structurel : formalisable comme implication, une fois ses primitives définies. \\
+$\vdash_{\mathrm{P}}$ & Physique standard : sa preuve relève des mathématiques connues et ne valide pas BST. \\
+$\vdash_{\mathrm{E}}$ & Exploratoire : primitives non définies mathématiquement ; non formalisable en l'état. \\
+\hline
+\end{tabular}
+\end{center}
+\noindent\textbf{Avertissement Lean.} Un assistant de preuve vérifie la validité logique \emph{étant donné des axiomes}, non la correspondance avec le monde. Un théorème $\vdash_{\mathrm{L}}$ vérifié renforce la cohérence interne du cadre ; il n'établit ni la vérité empirique, ni les calibrations physiques, ni la couche cognitive.
+
+\chapter{Théorèmes ontologiques}
+
+\Th{Existence}{Il existe quelque chose plutôt que rien ; point de départ minimal irréductible.}{Forcé (axiome fondateur)}{$\vdash_{\mathrm{L}}$}{---}{---}
+\Th{Nécessité du substrat}{Une organisation persistante requiert un support : le substrat latent battant.}{Dérivé}{$\vdash_{\mathrm{L}}$}{Existence}{---}
+\Th{Nécessité du battement}{La dynamique minimale prend la forme de battements dépendant de la résolution ; aucun battement universel unique.}{Dérivé}{$\vdash_{\mathrm{L}}$}{Substrat}{007, 009}
+\Th{Fermeture $\Rightarrow$ stabilité}{Une organisation stable requiert la fermeture ; la stabilité émerge de fermeture $+$ persistance.}{Dérivé}{$\vdash_{\mathrm{L}}$}{Battements, Fermeture}{067}
+
+\chapter{Théorèmes de résolution et de latence}
+
+\Th{Dépendance à la résolution}{Toute reconstruction est relative à une résolution.}{Dérivé}{$\vdash_{\mathrm{L}}$}{Stabilité}{008}
+\Th{Profondeur latente}{Le substrat porte une profondeur au-delà du cutoff observable ; le latent peut contrôler l'observable.}{Dérivé}{$\vdash_{\mathrm{L}}$}{Résolution}{004, 010--013}
+\Th{Persistance inter-résolution}{Une structure suffisamment cohérente demeure reconstructible à travers de multiples résolutions.}{Dérivé}{$\vdash_{\mathrm{L}}$}{Résolution}{007}
+\Th{Nécessité du latent}{Sous résolutions limitées $+$ reconstruction observable $+$ persistance inter-résolution, l'existence d'une reconstruction latente est une conséquence \emph{nécessaire} --- non un postulat.}{Dérivé}{$\vdash_{\mathrm{L}}$}{Observable, Persistance}{004}
+
+\medskip\noindent\small\textit{Note.} Candidat le plus net à la formalisation : implication entre conditions précises $\Rightarrow$ non-vacuité du complément latent.\normalsize
+
+\chapter{Théorèmes de reconstruction}
+\Th{Identité}{Une identité émerge d'une reconstruction persistante, cohérente et continue à travers temps et résolution ; propriété reconstructive, non substance.}{Dérivé}{$\vdash_{\mathrm{L}}$ (déf. à préciser)}{Persistance}{---}
+\Th{Mémoire}{La conservation de traces reconstructives influençant la reconstruction ultérieure requiert une identité persistante.}{Dérivé}{$\vdash_{\mathrm{L}}$ (déf. à préciser)}{Identité}{---}
+\Th{Reconstruction}{Reconstruction observable et latente sont deux aspects d'une même opération ; la distinction porte sur la reconstructibilité, non l'existence.}{Démontré}{$\vdash_{\mathrm{L}}$}{Observable, Latente}{065}
+
+\paragraph{Note sur la formalisation de la persistance.}
+
+Deux formalisations distinctes de la persistance ont été étudiées dans le programme Lean associé à BST.
+
+La première identifie la persistance à une distinguabilité inter-résolutions, exprimée par une condition de séparation globale des états observables.
+
+La seconde identifie la persistance à une cohérence inter-résolutions, exprimée par une propriété de recollement cohérent des représentations locales.
+
+Les contre-modèles formellement vérifiés montrent que ces deux notions sont logiquement indépendantes. La cohérence ne se réduit donc pas à la distinguabilité.
+
+Cette observation est cohérente avec l’interprétation retenue dans le manuscrit principal, selon laquelle ce qui persiste à travers les résolutions est la cohérence de l’organisation reconstruite plutôt que la préservation d’une forme locale particulière.
+
+\chapter{Théorèmes cognitifs (Exploratoires)}
+\medskip\noindent\textit{Statut épistémique de tout ce chapitre : Exploratoire.}\medskip
+\Th{Imagination}{Une reconstruction à mémoire peut engendrer des organisations cohérentes non contraintes par l'observation présente.}{Exploratoire}{$\vdash_{\mathrm{E}}$}{Mémoire}{---}
+\Th{Sélection}{Quand l'espace des possibles excède ce qui peut rester cohérent, une réduction émerge par fermeture, stabilité, mémoire.}{Exploratoire}{$\vdash_{\mathrm{E}}$}{Imagination}{---}
+\Th{Arbitrage}{Quand plusieurs reconstructions admissibles subsistent, une étape de résolution (arbitrage) produit la reconstruction effective.}{Exploratoire}{$\vdash_{\mathrm{E}}$}{Sélection}{---}
+\Th{Agent}{Une organisation persistante opérant par mémoire, imagination, sélection, arbitrage peut se comporter comme un agent. Aucune substance/âme/entité cachée n'est postulée ; la lecture libertarienne du choix est \emph{posée}, non prouvée.}{Exploratoire}{$\vdash_{\mathrm{E}}$}{Identité, Arch. cognitive}{---}
+
+\chapter{Théorèmes physiques --- jauge et électromagnétisme}
+\medskip\noindent\small Ces théorèmes \emph{rejoignent} de la physique établie ; $\vdash_{\mathrm{P}}$ rappelle que leur preuve relève des mathématiques connues.\normalsize\medskip
+\Th{Secteur de jauge U(1) compact}{Plaquette, tube de flux et monopole effectif fournissent une reconstruction de type jauge à partir du gradient de phase.}{Dérivé (exemple de reconstruction)}{$\vdash_{\mathrm{P}}$}{Gradient de phase}{001--003}
+\Th{Polarité et résidu de Coulomb}{La polarité de phase et l'annulation/résidu reconstruisent un secteur de type Coulomb.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Gradient de phase}{025, 026}
+\Th{Goldstone longue portée}{Une symétrie brisée engendre un mode de Goldstone à longue portée.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Polarité}{027}
+\Th{Magnétisme comme vorticité}{Le magnétisme (force de Lorentz) se reconstruit comme vorticité du champ de phase.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Gradient de phase}{059}
+\Th{Lumière comme onde de Goldstone}{La lumière se reconstruit comme onde de Goldstone transverse ; l'électromagnétisme classique (Maxwell) est rejoint.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Goldstone}{060}
+\Eqr{Champ natif $A_{\mathrm{eff}}\sim\nabla\theta$ ; équations de Maxwell classiques.}
+
+\chapter{Théorèmes physiques --- criticité, matière, quantique}
+\Th{Criticité KT}{Le système de phase présente une transition de Kosterlitz--Thouless : déliaison de défauts topologiques et invariants critiques universels.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Dynamique de phase}{031, 032, 033}
+\Eqr{$C(r)\sim r^{-\eta}$, $\eta=\tfrac14$ ; saut universel $\rho_s=\tfrac{2}{\pi}$ ; point fixe $K_R^{*}=\tfrac{2}{\pi}$.}
+\Th{Matière comme soliton}{La matière émerge comme organisation topologique stable (kink/grumeau, vortex), non comme substance primitive.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Criticité}{036}
+\Eqr{Masse comme kink de sine-Gordon ; $M=8$ (unités du modèle).}
+\Th{Potentiel quantique}{La géométrie du champ de phase engendre un terme équivalent au potentiel quantique.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Matière}{029}
+\Eqr{$Q\propto -\,\dfrac{\nabla^2 R}{R}$.}
+\Th{Relations de de Broglie}{Les structures propageantes stables satisfont les relations de de Broglie.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Quantique}{037}
+\Eqr{$p=\hbar k$, $E=\hbar\omega$, $\lambda=h/p$, $v_{\mathrm{ph}}v_{\mathrm{gr}}=c^2$.}
+\Th{Limite de Schrödinger}{Dans la limite diluée, la dynamique effective est linéaire et de type Schrödinger.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Quantique}{048}
+\Eqr{$i\hbar\,\partial_t\psi=\hat H\psi$.}
+\Th{Cohérence de Born}{$P\propto|\psi|^2$ est compatible avec le cadre ; adoptée, non dérivée.}{Cohérent / Calibré}{$\vdash_{\mathrm{P}}$}{Quantique}{038}
+
+\chapter{Théorèmes physiques --- fermions et spin}
+\Th{Fermions par attachement de flux}{Spin et statistique fermionique se reconstruisent par attachement de flux à des défauts.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Défauts topologiques}{049}
+\Th{Spineur et double-recouvrement}{Un spineur de spin-$\tfrac12$ émerge d'une factorisation minimale ; double-recouvrement $4\pi$ (Clifford).}{Dérivé}{$\vdash_{\mathrm{P}}$}{Fermions}{056}
+\Th{Opérateur de Dirac}{La marche/zitterbewegung reconstruit l'équation de Dirac, d'abord en $1{+}1$ puis en $3{+}1$, avec $H^2=p^2+m^2$.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Spineur, Dispersion}{051, 071}
+\Eqr{$H^2=p^2c^2+m^2c^4$ ; masse comme taux d'inversion (zitterbewegung).}
+
+\chapter{Théorèmes physiques --- relativité et gravité}
+\Th{Dispersion relativiste}{La dynamique de battement conservative engendre une dispersion relativiste et une vitesse limite $c$.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Quantique}{034}
+\Eqr{$\omega^2=c^2k^2+m^2c^4/\hbar^2$ ; $E^2=p^2c^2+m^2c^4$.}
+\Th{Métrique effective}{Une organisation inhomogène du substrat modifie la propagation géométriquement : métrique acoustique effective.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Relativiste}{035}
+\Th{Gravité induite et Newton}{La courbure issue des structures persistantes induit une gravité (Sakharov) reproduisant Newton à longue portée.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Métrique effective}{039--041}
+\Eqr{$F\propto \dfrac{M_1M_2}{r^2}$ ; $G_{\mathrm{eff}}=\dfrac{\lambda^2}{4\pi}$.}
+\Th{Déviation de la lumière}{Les excitations sans masse subissent une déviation gravitationnelle (lentille).}{Dérivé}{$\vdash_{\mathrm{P}}$}{Métrique effective}{042}
+\Th{Einstein conique en $2{+}1$}{Le cône de disclinaison reconstruit exactement la gravité d'Einstein en $2{+}1$ dimensions.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Métrique effective}{045}
+\Th{Spin-2 et géométrie cohérente avec Einstein}{Les modes de cisaillement élastique transverses engendrent un secteur spin-2 ; identifié à la courbure de Kleinert, le cadre rejoint $\gamma_{\mathrm{PPN}}=1$.}{Dérivé / Conditionnel}{$\vdash_{\mathrm{P}}$}{Newton, Kleinert}{043, 046, 054, 057, 058}
+\Eqr{Courbure de Kleinert $\gamma=1$ ; ondes gravitationnelles à $c$.}
+
+\chapter{Théorèmes d'intrants du Modèle Standard (Conditionnels)}
+\Th{Couleur $Z_3$}{Une symétrie interne $Z_3$ (couleur) est \emph{posée} comme intrant ; le théorème de Coleman--Mandula interdit de la dériver des seules directions spatiales.}{Posé (frontière axiomatique)}{$\vdash_{\mathrm{P}}$}{---}{069, 074--076}
+\Th{Trois générations}{Trois générations observables s'interprètent par un seuil de résolution ; le seuil est compatible avec le cadre mais non dérivé des premiers principes.}{Calibré / Conditionnel}{$\vdash_{\mathrm{P}}$}{Résolution}{070, 074}
+
+\chapter{Théorèmes de magnitude et de fermeture (l'arc S77--S86)}
+\medskip\noindent\small Cet arc est le c\oe ur quantitatif --- et le plus subtil. Il faut le lire avec ses statuts.\normalsize\medskip
+\Th{Localisation de la hiérarchie}{Les invariants critiques sont d'ordre unité ($\eta=\tfrac14$, $\rho_s=\tfrac{2}{\pi}$) et n'engendrent pas la hiérarchie observée ; le problème est localisé hors du secteur critique.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Criticité}{077, 080}
+\Th{Transmutation dimensionnelle}{La brisure d'échelle par fermeture de contact rouvre les magnitudes ; une transmutation dimensionnelle peut engendrer des rapports de hiérarchie émergents.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Localisation}{078, 079}
+\Th{Attracteur de distance à la criticité}{La distance à la criticité $t$ est un attracteur auto-organisé $t^{*}=\sqrt{y/\gamma}$, ramenant la question à la force de rétroaction $\gamma$.}{Dérivé}{$\vdash_{\mathrm{P}}$}{Criticité}{081}
+\Th{Forme de la rétroaction dérivée de l'action}{La \emph{forme} de la rétroaction se dérive de l'action ($F=-\delta S/\delta\theta$) ; mais sa \emph{magnitude} (rapport $K/\gamma$) n'est pas fixée par cette seule forme.}{Dérivé (forme) / Ouvert (magnitude)}{$\vdash_{\mathrm{P}}$ / $\vdash_{\mathrm{L}}$}{Action du substrat}{082--085}
+\Eqr{$S_{\mathrm{BST}}[\theta;r]=\int\mathcal{L}_{\mathrm{BSF}}\,d^dx\,dt$, \; $F_r=-\,\delta S/\delta\theta$.}
+\Th{Coefficient de fermeture forcé au point fixe KT}{Le flot KT autonome où vit le substrat possède un point fixe \emph{universel} $K_R^{*}=2/\pi$ : la récursion « ce coefficient est-il vraiment libre ? » se termine sur un invariant \emph{forcé}. Mais $K^{*}=2/\pi$ est d'ordre unité $\Rightarrow$ ne génère pas la hiérarchie.}{Forcé (le coefficient)}{$\vdash_{\mathrm{P}}$}{Criticité, Rétroaction}{086}
+\Eqr{$K_R^{*}=2/\pi$ (côté ordonné) ; côté désordonné : fuite (déliaison de vortex).}
+\Th{Magnitudes physiques}{Les valeurs observées des masses, de $G$ et de $\Lambda$ requièrent une calibration ; existence dérivée, valeurs calibrées.}{Calibré}{$\vdash_{\mathrm{P}}$}{Matière, Gravité}{077}
+\Eqr{$G_{\mathrm{eff}}\sim\text{courbure}/\text{énergie}$ ; $\Lambda_{\mathrm{eff}}\sim L_{\mathrm{IR}}^{-2}$ (S064).}
+\Th{Clôture résiduelle}{Tout coefficient interne est forcé et l'ontologie est unifiée ; il reste exactement (i) une donnée off-critique (le couplage nu hors-criticité) et (ii) un mur méta-axiomatique. Le cadre est \emph{cartographié}, non \emph{terminé}.}{Ouvert (la hiérarchie)}{$\vdash_{\mathrm{L}}$}{Tout l'arc}{086}
+
+\chapter{Théorèmes méthodologiques}
+\medskip\noindent\small Non dérivés du cadre : ce sont les contraintes qu'il s'impose. Formalisables comme conditions logiques sur les reconstructions admissibles.\normalsize\medskip
+\Th{Nécessité}{Un construit n'est admissible que si son retrait brise la chaîne explicative.}{Méthodologique}{$\vdash_{\mathrm{L}}$}{---}{---}
+\Th{Non-triche}{La dérivation va hypothèses $\rightarrow$ conséquences ; l'insertion \emph{a posteriori} d'un résultat désiré est interdite.}{Méthodologique}{$\vdash_{\mathrm{L}}$}{---}{073, 078}
+\Th{Persistance, fermeture, reproductibilité}{Une reconstruction admissible doit persister sous la dynamique, maintenir sa fermeture, rester reproductible quand elle est numérique.}{Méthodologique}{$\vdash_{\mathrm{L}}$ / $\vdash_{\mathrm{P}}$}{Nécessité, Non-triche}{083--085}
+
+\chapter{Synthèse et programme de formalisation}
+\section{Ce que le recueil établit}
+Une ossature cohérente : une chaîne ontologique forcée/dérivée ; une théorie de la résolution dont le latent est une \emph{conséquence nécessaire} ; un secteur physique qui \emph{rejoint} la physique établie de l'électromagnétisme (Coulomb, Maxwell, magnétisme), des fermions (Dirac, spin-$\tfrac12$, Clifford), de la mécanique quantique (potentiel quantique, de Broglie, Schrödinger), de la relativité et de la gravité (dispersion, Newton, Einstein conique $2{+}1$, $\gamma=1$) ; des intrants du Modèle Standard explicitement \emph{posés} (couleur $Z_3$, générations) ; et un arc de magnitudes dont le c\oe ur (S086) montre que le coefficient de fermeture est \emph{forcé} au point fixe KT $2/\pi$.
+
+\section{Ce que le recueil n'établit pas}
+Ni la vérité empirique de BST, ni une dérivation des magnitudes observées, ni le franchissement de la donnée off-critique et du mur méta-axiomatique, ni une preuve de la couche cognitive (Exploratoire). La convergence des deux portes en atteste la cohérence, non la validation expérimentale.
+
+\section{La cible Lean}
+Le sous-ensemble $\vdash_{\mathrm{L}}$ est formalisable : théorèmes ontologiques, théorèmes de résolution (surtout la \emph{nécessité du latent}), la Reconstruction, la \emph{clôture résiduelle}, et les critères méthodologiques. Le travail consiste à \emph{fixer les définitions} des primitives --- résolution comme famille de projections, observable comme quotient, latent comme complément non vide, persistance comme cohérence inter-projections, fermeture comme condition de point fixe. Les théorèmes $\vdash_{\mathrm{P}}$ relèvent des mathématiques de la physique connue ; les $\vdash_{\mathrm{E}}$ ne sont pas formalisables en l'état.
+
+\section{Énoncé final autorisé}
+Une vérification Lean réussie autorisera ceci --- et rien de plus fort : « l'échafaudage logique du noyau de BST est vérifié par machine pour sa cohérence interne, étant donné ses définitions et axiomes. » Acquis réel et borné ; il ne dira rien de la correspondance de BST avec la nature, qui demeure une question empirique ouverte.
+
+\end{document}

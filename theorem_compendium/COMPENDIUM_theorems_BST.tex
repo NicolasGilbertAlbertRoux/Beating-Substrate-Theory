@@ -1,0 +1,204 @@
+\documentclass[11pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{tabular}{\begin{adjustbox}{max width=\linewidth}}
+\AfterEndEnvironment{tabular}{\end{adjustbox}}
+\setlength{\emergencystretch}{3em}
+
+\newcounter{thm}[chapter]
+\renewcommand{\thethm}{\thechapter.\arabic{thm}}
+\newcommand{\Th}[6]{%
+  \refstepcounter{thm}%
+  \medskip\noindent\textbf{Theorem~\thethm{} (#1).}\enspace #2%
+  \par\smallskip\noindent\small\textit{Status:} #3 \;\textbar\; \textit{Formalizability:} #4 \;\textbar\; \textit{Depends on:} #5 \;\textbar\; \textit{Stage(s):} #6\par\normalsize\medskip}
+\newcommand{\Eqr}[1]{\vspace{-0.4em}\par\noindent\small\textit{Equation rejoined:} #1\par\normalsize\medskip}
+
+\title{Compendium of Theorems\\[0.4em]\large of the Beating Substrate Theory\\[0.6em]\normalsize Complete and optimized version --- with formalizability classification}
+\author{Nicolas Gilbert Albert Roux}
+\date{\today}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\vspace{1em}
+\begin{center}\itshape
+``Another entry door to BST is its compendium of theorems.\\
+They do not reinvent Physics but allow rejoining it\\
+from the deepest structures of the theory.''
+\end{center}
+\vspace{1em}
+
+\begin{center}\small\itshape Computational assistance was used for the organization and consistency auditing of this compendium. Every stage attribution was verified against the repository.\end{center}
+
+\tableofcontents
+\mainmatter
+
+\chapter{Reading Note}
+
+\section{What this compendium is, and is not}
+This compendium gathers, as numbered statements, the structural results of the Beating Substrate Theory (BST), in their most complete and optimized form to date. In keeping with the epigraph, these theorems do not reinvent physics: they allow one to \emph{rejoin} it from the deepest structures of the framework.
+
+This compendium is not a proof that nature \emph{is} the beating substrate. The physical theorems \emph{rejoin} equations that are already established and already calibrated against experiment; they do not derive them \emph{ex nihilo} and do not constitute new empirical confirmation. The numerical results are \emph{possibility/consistency} results (the substrate--phase language \emph{can} host these structures), not measurements of nature. No new, falsified prediction is claimed.
+
+\section{The two doors --- and what their convergence is worth}
+BST was reached by two independent paths: a \emph{constructive} approach (building a simulation honouring observed reality, then reading off its structure) and a \emph{re-description} approach (starting from established physics --- already calibrated --- and reformulating it under a minimal geometric principle). The two converge on the same architecture. This convergence attests to the \emph{robustness} and \emph{non-arbitrariness} of the re-description --- but not to independent empirical validation: both doors honour the same anchor (known physics), and a simulation reproduces only what it was built to reproduce. It is an argument of coherence, not a measurement of nature.
+
+\section{Status legend}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Status & Meaning \\
+\hline
+Forced & Imposed by the structure of the framework, with no free tuning. \\
+Derived & Obtained by derivation/demonstrative chain under explicit hypotheses (possibility result). \\
+Conditional & Valid if an explicitly posited ingredient is accepted. \\
+Posited & Explicitly assumed input, not derived (axiomatic boundary). \\
+Calibrated & Magnitude tied to observation; legitimate when declared. \\
+Consistent & Compatible with the framework, but not derived. \\
+Open & Question unresolved by the current framework. \\
+Exploratory & Proposed conceptual architecture, not anchored as the physics is. \\
+Methodological & Constraint imposed on the framework, not derived from it. \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Formalizability legend}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Index & Meaning \\
+\hline
+$\vdash_{\mathrm{L}}$ & Logical-structural: formalizable as an implication, once its primitives are defined. \\
+$\vdash_{\mathrm{P}}$ & Standard physics: its proof belongs to known mathematics and does not validate BST. \\
+$\vdash_{\mathrm{E}}$ & Exploratory: primitives not mathematically defined; not formalizable as it stands. \\
+\hline
+\end{tabular}
+\end{center}
+\noindent\textbf{Lean caveat.} A proof assistant checks logical validity \emph{given axioms}, not correspondence with the world. A verified $\vdash_{\mathrm{L}}$ theorem strengthens the internal coherence of the framework; it establishes neither empirical truth, nor the physical calibrations, nor the cognitive layer.
+
+\chapter{Ontological Theorems}
+
+\Th{Existence}{There is something rather than nothing; the minimal irreducible starting point.}{Forced (foundational axiom)}{$\vdash_{\mathrm{L}}$}{---}{---}
+\Th{Substrate Necessity}{A persistent organization requires a support: the latent beating substrate.}{Derived}{$\vdash_{\mathrm{L}}$}{Existence}{---}
+\Th{Beating Necessity}{The minimal dynamics take the form of resolution-dependent beatings; no single universal beating is assumed.}{Derived}{$\vdash_{\mathrm{L}}$}{Substrate}{007, 009}
+\Th{Closure $\Rightarrow$ Stability}{A stable organization requires closure; stability emerges from closure $+$ persistence.}{Derived}{$\vdash_{\mathrm{L}}$}{Beatings, Closure}{067}
+
+\chapter{Theorems of Resolution and Latency}
+
+\Th{Resolution Dependence}{Every reconstruction is relative to a resolution.}{Derived}{$\vdash_{\mathrm{L}}$}{Stability}{008}
+\Th{Latent Depth}{The substrate carries depth beyond the observable cutoff; the latent can control the observable.}{Derived}{$\vdash_{\mathrm{L}}$}{Resolution}{004, 010--013}
+\Th{Inter-Resolution Persistence}{A sufficiently coherent structure remains reconstructible across multiple resolutions.}{Derived}{$\vdash_{\mathrm{L}}$}{Resolution}{007}
+\Th{Latent Necessity}{Under limited resolutions $+$ observable reconstruction $+$ inter-resolution persistence, the existence of a latent reconstruction is a \emph{necessary} consequence --- not a postulate.}{Derived}{$\vdash_{\mathrm{L}}$}{Observable, Persistence}{004}
+
+\medskip\noindent\small\textit{Note.} The cleanest candidate for formalization: an implication between precise conditions $\Rightarrow$ non-emptiness of the latent complement.\normalsize
+
+\chapter{Reconstruction Theorems}
+\Th{Identity}{An identity emerges from a persistent reconstruction, coherent and continuous across time and resolution; a reconstructive property, not a substance.}{Derived}{$\vdash_{\mathrm{L}}$ (defs.\ to be made precise)}{Persistence}{---}
+\Th{Memory}{Preserving reconstructive traces that influence later reconstruction requires a persistent identity.}{Derived}{$\vdash_{\mathrm{L}}$ (defs.\ to be made precise)}{Identity}{---}
+\Th{Reconstruction}{Observable and latent reconstruction are two aspects of a single operation; the distinction concerns reconstructibility, not existence.}{Demonstrated}{$\vdash_{\mathrm{L}}$}{Observable, Latent}{065}
+
+\paragraph{Note on the Formalization of Persistence.}
+
+Two distinct formalizations of persistence have been investigated within the Lean verification program associated with BST.
+
+The first identifies persistence with cross-resolution distinguishability, expressed as a global separation condition on observable states.
+
+The second identifies persistence with cross-resolution coherence, expressed as a gluing property between compatible local representations.
+
+Formally verified counterexamples show that these two notions are logically independent. Consequently, coherence cannot be reduced to distinguishability.
+
+This observation is consistent with the interpretation adopted throughout the main manuscript, according to which what persists across resolutions is the coherence of the reconstructed organization rather than the preservation of any particular local form.
+
+\chapter{Cognitive Theorems (Exploratory)}
+\medskip\noindent\textit{Epistemic status of this entire chapter: Exploratory.}\medskip
+\Th{Imagination}{A memory-bearing reconstruction can generate coherent organizations not constrained by present observation.}{Exploratory}{$\vdash_{\mathrm{E}}$}{Memory}{---}
+\Th{Selection}{When the space of possibilities exceeds what can remain coherent, a reduction emerges through closure, stability, memory.}{Exploratory}{$\vdash_{\mathrm{E}}$}{Imagination}{---}
+\Th{Arbitration}{When several admissible reconstructions remain, a resolution step (arbitration) produces the effective reconstruction.}{Exploratory}{$\vdash_{\mathrm{E}}$}{Selection}{---}
+\Th{Agent}{A persistent organization operating through memory, imagination, selection, arbitration can behave as an agent. No substance/soul/hidden entity is posited; the libertarian reading of choice is \emph{posited}, not proven.}{Exploratory}{$\vdash_{\mathrm{E}}$}{Identity, Cognitive arch.}{---}
+
+\chapter{Physical Theorems --- Gauge and Electromagnetism}
+\medskip\noindent\small These theorems \emph{rejoin} established physics; $\vdash_{\mathrm{P}}$ recalls that their proof belongs to known mathematics.\normalsize\medskip
+\Th{Compact U(1) Gauge Sector}{Plaquette, flux tube and effective monopole provide a gauge-like reconstruction from the phase gradient.}{Derived (reconstruction example)}{$\vdash_{\mathrm{P}}$}{Phase gradient}{001--003}
+\Th{Polarity and Coulomb Residual}{Phase polarity and cancellation/residual reconstruct a Coulomb-like sector.}{Derived}{$\vdash_{\mathrm{P}}$}{Phase gradient}{025, 026}
+\Th{Long-Range Goldstone}{A broken symmetry generates a long-range Goldstone mode.}{Derived}{$\vdash_{\mathrm{P}}$}{Polarity}{027}
+\Th{Magnetism as Vorticity}{Magnetism (the Lorentz force) reconstructs as vorticity of the phase field.}{Derived}{$\vdash_{\mathrm{P}}$}{Phase gradient}{059}
+\Th{Light as Goldstone Wave}{Light reconstructs as a transverse Goldstone wave; classical electromagnetism (Maxwell) is rejoined.}{Derived}{$\vdash_{\mathrm{P}}$}{Goldstone}{060}
+\Eqr{Native field $A_{\mathrm{eff}}\sim\nabla\theta$; classical Maxwell equations.}
+
+\chapter{Physical Theorems --- Criticality, Matter, Quantum}
+\Th{KT Criticality}{The phase system undergoes a Kosterlitz--Thouless transition: unbinding of topological defects and universal critical invariants.}{Derived}{$\vdash_{\mathrm{P}}$}{Phase dynamics}{031, 032, 033}
+\Eqr{$C(r)\sim r^{-\eta}$, $\eta=\tfrac14$; universal jump $\rho_s=\tfrac{2}{\pi}$; fixed point $K_R^{*}=\tfrac{2}{\pi}$.}
+\Th{Matter as Soliton}{Matter emerges as a stable topological organization (kink/lump, vortex), not as a primitive substance.}{Derived}{$\vdash_{\mathrm{P}}$}{Criticality}{036}
+\Eqr{Mass as a sine--Gordon kink; $M=8$ (model units).}
+\Th{Quantum Potential}{The geometry of the phase field generates a term equivalent to the quantum potential.}{Derived}{$\vdash_{\mathrm{P}}$}{Matter}{029}
+\Eqr{$Q\propto -\,\dfrac{\nabla^2 R}{R}$.}
+\Th{de Broglie Relations}{Stable propagating structures satisfy the de Broglie relations.}{Derived}{$\vdash_{\mathrm{P}}$}{Quantum}{037}
+\Eqr{$p=\hbar k$, $E=\hbar\omega$, $\lambda=h/p$, $v_{\mathrm{ph}}v_{\mathrm{gr}}=c^2$.}
+\Th{Schrödinger Limit}{In the dilute limit, the effective dynamics are linear and of Schrödinger type.}{Derived}{$\vdash_{\mathrm{P}}$}{Quantum}{048}
+\Eqr{$i\hbar\,\partial_t\psi=\hat H\psi$.}
+\Th{Born Consistency}{$P\propto|\psi|^2$ is compatible with the framework; adopted, not derived.}{Consistent / Calibrated}{$\vdash_{\mathrm{P}}$}{Quantum}{038}
+
+\chapter{Physical Theorems --- Fermions and Spin}
+\Th{Fermions by Flux Attachment}{Spin and fermionic statistics reconstruct via flux attachment to defects.}{Derived}{$\vdash_{\mathrm{P}}$}{Topological defects}{049}
+\Th{Spinor and Double Cover}{A spin-$\tfrac12$ spinor emerges from a minimal factorization; $4\pi$ double cover (Clifford).}{Derived}{$\vdash_{\mathrm{P}}$}{Fermions}{056}
+\Th{Dirac Operator}{The walk/zitterbewegung reconstructs the Dirac equation, first in $1{+}1$ then in $3{+}1$, with $H^2=p^2+m^2$.}{Derived}{$\vdash_{\mathrm{P}}$}{Spinor, Dispersion}{051, 071}
+\Eqr{$H^2=p^2c^2+m^2c^4$; mass as inversion rate (zitterbewegung).}
+
+\chapter{Physical Theorems --- Relativity and Gravity}
+\Th{Relativistic Dispersion}{Conservative beating dynamics generate a relativistic dispersion and a limiting speed $c$.}{Derived}{$\vdash_{\mathrm{P}}$}{Quantum}{034}
+\Eqr{$\omega^2=c^2k^2+m^2c^4/\hbar^2$; $E^2=p^2c^2+m^2c^4$.}
+\Th{Effective Metric}{An inhomogeneous substrate organization modifies propagation geometrically: an effective acoustic metric.}{Derived}{$\vdash_{\mathrm{P}}$}{Relativistic}{035}
+\Th{Induced Gravity and Newton}{Curvature from persistent structures induces gravity (Sakharov), reproducing Newton at long range.}{Derived}{$\vdash_{\mathrm{P}}$}{Effective metric}{039--041}
+\Eqr{$F\propto \dfrac{M_1M_2}{r^2}$; $G_{\mathrm{eff}}=\dfrac{\lambda^2}{4\pi}$.}
+\Th{Light Bending}{Massless excitations undergo gravitational deflection (lensing).}{Derived}{$\vdash_{\mathrm{P}}$}{Effective metric}{042}
+\Th{Conical Einstein in $2{+}1$}{The disclination cone reconstructs exactly Einstein gravity in $2{+}1$ dimensions.}{Derived}{$\vdash_{\mathrm{P}}$}{Effective metric}{045}
+\Th{Spin-2 and Einstein-Consistent Geometry}{Transverse elastic shear modes generate a spin-2 sector; identified with Kleinert curvature, the framework rejoins $\gamma_{\mathrm{PPN}}=1$.}{Derived / Conditional}{$\vdash_{\mathrm{P}}$}{Newton, Kleinert}{043, 046, 054, 057, 058}
+\Eqr{Kleinert curvature $\gamma=1$; gravitational waves at $c$.}
+
+\chapter{Standard Model Input Theorems (Conditional)}
+\Th{$Z_3$ Colour}{An internal $Z_3$ (colour) symmetry is \emph{posited} as input; the Coleman--Mandula theorem forbids deriving it from spatial directions alone.}{Posited (axiomatic boundary)}{$\vdash_{\mathrm{P}}$}{---}{069, 074--076}
+\Th{Three Generations}{Three observable generations are interpreted via a resolution threshold; the threshold is compatible with the framework but not derived from first principles.}{Calibrated / Conditional}{$\vdash_{\mathrm{P}}$}{Resolution}{070, 074}
+
+\chapter{Magnitude and Closure Theorems (the S77--S86 arc)}
+\medskip\noindent\small This arc is the quantitative core --- and the most subtle. It must be read with its statuses.\normalsize\medskip
+\Th{Hierarchy Localization}{The critical invariants are of order unity ($\eta=\tfrac14$, $\rho_s=\tfrac{2}{\pi}$) and do not generate the observed hierarchy; the problem is localized outside the critical sector.}{Derived}{$\vdash_{\mathrm{P}}$}{Criticality}{077, 080}
+\Th{Dimensional Transmutation}{Scale-breaking by contact closure re-opens the magnitudes; dimensional transmutation can generate emergent hierarchy ratios.}{Derived}{$\vdash_{\mathrm{P}}$}{Localization}{078, 079}
+\Th{Distance-to-Criticality Attractor}{The distance to criticality $t$ is a self-organized attractor $t^{*}=\sqrt{y/\gamma}$, reducing the question to the feedback strength $\gamma$.}{Derived}{$\vdash_{\mathrm{P}}$}{Criticality}{081}
+\Th{Action-Derived Feedback Form}{The \emph{form} of the feedback derives from the action ($F=-\delta S/\delta\theta$); but its \emph{magnitude} (ratio $K/\gamma$) is not fixed by that form alone.}{Derived (form) / Open (magnitude)}{$\vdash_{\mathrm{P}}$ / $\vdash_{\mathrm{L}}$}{Substrate action}{082--085}
+\Eqr{$S_{\mathrm{BST}}[\theta;r]=\int\mathcal{L}_{\mathrm{BSF}}\,d^dx\,dt$, \; $F_r=-\,\delta S/\delta\theta$.}
+\Th{Closure Coefficient Forced at the KT Fixed Point}{The autonomous KT flow in which the substrate sits has a \emph{universal} fixed point $K_R^{*}=2/\pi$: the recursion ``is this coefficient really free?'' terminates at a \emph{forced} invariant. But $K^{*}=2/\pi$ is of order unity $\Rightarrow$ it does not generate the hierarchy.}{Forced (the coefficient)}{$\vdash_{\mathrm{P}}$}{Criticality, Feedback}{086}
+\Eqr{$K_R^{*}=2/\pi$ (ordered side); disordered side: runaway (vortex unbinding).}
+\Th{Physical Magnitudes}{The observed values of the masses, $G$ and $\Lambda$ require calibration; existence derived, values calibrated.}{Calibrated}{$\vdash_{\mathrm{P}}$}{Matter, Gravity}{077}
+\Eqr{$G_{\mathrm{eff}}\sim\text{curvature}/\text{energy}$; $\Lambda_{\mathrm{eff}}\sim L_{\mathrm{IR}}^{-2}$ (S064).}
+\Th{Residual Closure}{Every internal coefficient is forced and the ontology is unified; there remain exactly (i) one off-critical datum (the bare off-critical coupling) and (ii) a meta-axiomatic wall. The framework is \emph{mapped}, not \emph{finished}.}{Open (the hierarchy)}{$\vdash_{\mathrm{L}}$}{The whole arc}{086}
+
+\chapter{Methodological Theorems}
+\medskip\noindent\small Not derived from the framework: these are the constraints it imposes on itself. Formalizable as logical conditions on admissible reconstructions.\normalsize\medskip
+\Th{Necessity}{A construct is admissible only if its removal breaks the explanatory chain.}{Methodological}{$\vdash_{\mathrm{L}}$}{---}{---}
+\Th{Non-Cheating}{Derivation goes hypotheses $\rightarrow$ consequences; \emph{a posteriori} insertion of a desired result is forbidden.}{Methodological}{$\vdash_{\mathrm{L}}$}{---}{073, 078}
+\Th{Persistence, Closure, Reproducibility}{An admissible reconstruction must persist under the dynamics, maintain its closure, and remain reproducible when numerical.}{Methodological}{$\vdash_{\mathrm{L}}$ / $\vdash_{\mathrm{P}}$}{Necessity, Non-Cheating}{083--085}
+
+\chapter{Synthesis and Formalization Program}
+\section{What the compendium establishes}
+A coherent skeleton: a forced/derived ontological chain; a theory of resolution in which the latent is a \emph{necessary} consequence; a physical sector that \emph{rejoins} established physics of electromagnetism (Coulomb, Maxwell, magnetism), of fermions (Dirac, spin-$\tfrac12$, Clifford), of quantum mechanics (quantum potential, de Broglie, Schrödinger), of relativity and gravity (dispersion, Newton, conical Einstein $2{+}1$, $\gamma=1$); Standard Model inputs explicitly \emph{posited} (colour $Z_3$, generations); and a magnitude arc whose core (S086) shows the closure coefficient to be \emph{forced} at the KT fixed point $2/\pi$.
+
+\section{What the compendium does not establish}
+Neither the empirical truth of BST, nor a derivation of the observed magnitudes, nor crossing the off-critical datum and the meta-axiomatic wall, nor a proof of the cognitive layer (Exploratory). The convergence of the two doors attests to coherence, not experimental validation.
+
+\section{The Lean target}
+The $\vdash_{\mathrm{L}}$ subset is formalizable: the ontological theorems, the resolution theorems (especially \emph{Latent Necessity}), Reconstruction, \emph{Residual Closure}, and the methodological criteria. The work consists in \emph{fixing the definitions} of the primitives --- resolution as a family of projections, observable as a quotient, latent as a non-empty complement, persistence as coherence across projections, closure as a fixed-point condition. The $\vdash_{\mathrm{P}}$ theorems belong to the mathematics of known physics; the $\vdash_{\mathrm{E}}$ ones are not formalizable as they stand.
+
+\section{Final admissible statement}
+A successful Lean verification will license this --- and nothing stronger: ``the logical scaffolding of BST's core is machine-checked for internal consistency, given its definitions and axioms.'' A real and bounded achievement; it will say nothing about BST's correspondence with nature, which remains an open empirical question.
+
+\end{document}
